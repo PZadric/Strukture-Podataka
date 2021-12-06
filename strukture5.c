@@ -34,7 +34,7 @@ Position StvoriElement(double broj)
 	noviEl = (Position)malloc(sizeof(Element));
 	if (!noviEl)
 	{
-		perror("Nije moguce alocirati memoriju!\n");
+		perror("Nije moguce alocirati\n");
 		return EXIT_FAILURE;
 	}
 
@@ -59,7 +59,7 @@ int Push(Position head, double broj)
 	noviEl = StvoriElement(broj);
 	if (!noviEl)
 	{
-		printf("Clan nije moguce izraditi!\n");
+		printf("Nije moguce stvoriti element\n");
 		return EXIT_FAILURE;
 	}
 
@@ -104,17 +104,17 @@ int Operacija(Position head, char operacija)
 	double operand1 = 0;
 	double operand2 = 0;
 	double rezultat = 0;
-	int status1 = EXIT_SUCCESS;
-	int status2 = EXIT_SUCCESS;
+	int s1 = EXIT_SUCCESS;
+	int s2 = EXIT_SUCCESS;
 
-	status2 = Pop(&operand2, head);
+	s2 = Pop(&operand2, head);
 	if (status2 != EXIT_SUCCESS)
 	{
 		return EXIT_FAILURE;
 	}
 
-	status1 = Pop(&operand1, head);
-	if (status1 != EXIT_SUCCESS)
+	s1 = Pop(&operand1, head);
+	if (s1 != EXIT_SUCCESS)
 	{
 		return -2;
 	}
@@ -133,7 +133,7 @@ int Operacija(Position head, char operacija)
 	case '/':
 		if (operand2 == 0)
 		{
-			perror("Nije moguce djeljenje sa nulom!\n");
+			perror("Nemoguce djeliti s nulom!\n");
 			return EXIT_FAILURE;
 		}
 		rezultat = operand1 / operand2;
@@ -161,7 +161,7 @@ int IzracunajPostfixIzDat(double* rezultat, char* nazivDat)
 	dat = fopen(nazivDat, "rb");
 	if (!dat)
 	{
-		perror("Nije moguce otvoriti ovu datoteku!\n");
+		perror("Nije moguce otvoriti datoteku!\n");
 		return EXIT_FAILURE;
 	}
 
